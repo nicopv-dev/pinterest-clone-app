@@ -19,6 +19,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import PostScreen from '../screens/PostScreen';
+import CreatePostScreen from '../screens/CreatePostScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -90,9 +91,9 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="CreatePost"
-        component={ProfileScreen}
+        component={CreatePostScreen}
         options={{
-          title: 'Profile',
+          title: 'Create Post',
           headerTitleAlign: 'center',
           tabBarIcon: ({ color }) => <FontAwesome name="plus" size={30} color={color} />,
         }}
