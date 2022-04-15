@@ -60,16 +60,17 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarShowLabel: false,
       }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Home"
         component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <FontAwesome name="home" size={30} color={color} />,
           headerTitleAlign: 'center',
           headerRight: () => (
             <Pressable
@@ -88,12 +89,21 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
+        name="CreatePost"
         component={ProfileScreen}
         options={{
           title: 'Profile',
           headerTitleAlign: 'center',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome name="plus" size={30} color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          title: 'Profile',
+          headerTitleAlign: 'center',
+          tabBarIcon: ({ color }) => <FontAwesome name="user" size={30} color={color} />,
         }}
       />
     </BottomTab.Navigator>
