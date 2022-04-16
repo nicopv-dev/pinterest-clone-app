@@ -18,7 +18,7 @@ export default function PostsList({ posts }: IPostList) {
     <ScrollView>
   		<View style={styles.container}>
         {Array.from(Array(numColumns)).map((col, colIndex) => (
-          <View style={styles.column}>
+          <View style={styles.column} key={colIndex}>
             {posts.filter((_, index) => index % numColumns === colIndex).map((item, index) => (
               <Pin pin={item} key={index} />
             ))}

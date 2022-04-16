@@ -1,17 +1,24 @@
 import { Entypo, Feather } from '@expo/vector-icons';
-import { StyleSheet, Image, ScrollView } from 'react-native';
+import { useSignOut } from '@nhost/react';
+import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, Image, ScrollView, Pressable } from 'react-native';
 import pins from '../assets/data/pins';
 import EditScreenInfo from '../components/EditScreenInfo';
 import PostsList from '../components/PostsList';
 import { Text, View } from '../components/Themed';
 
 export default function ProfileScreen() {
+  const navigation = useNavigation();
+  const { signOut } = useSignOut();
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.icons}>
           <Feather name='share' size={24} color="black" style={styles.icon} />
-          <Entypo name='dots-three-horizontal' size={24} color="black" style={styles.icon} />
+          <Pressable onPress={signOut}>
+            <Entypo name='dots-three-horizontal' size={24} color="black" style={styles.icon} />
+          </Pressable>
         </View>
         <Image source={{ uri: "https://www.blexar.com/avatar.png" }} style={styles.avatar}/>
         <Text style={styles.title}>ProfileScreen</Text>
